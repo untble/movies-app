@@ -1,0 +1,28 @@
+.backside-movie {
+    position: absolute;
+    top: -3%;
+    left: -4%;
+    background-color: #444b54;
+    width: 110%;
+    height: 99%;
+    border-radius:5px;
+    cursor: pointer;
+    color: #FFFFFF;
+
+    padding: 8px 20px;
+}
+
+.backside-title {
+    font-weight: 400;
+}
+
+.backside-genres {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.backside-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
