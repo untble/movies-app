@@ -23,6 +23,7 @@
     width: 110px;
     height: 30px;
     font-size: 24px;
+    font-weight: 300;
 }
 
 .header-search {
@@ -37,4 +38,14 @@
     background-color: #444b54;
     line-height: 0;
     margin-left: 15px;
+    outline-width: 0;
+}
+
+.header-logout {
+    background-color: white;
+    color: black;
+    padding:5px 10px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
 }

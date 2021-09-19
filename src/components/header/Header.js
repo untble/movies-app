@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import {useDispatch} from "react-redux";
 import {INPUT_MOVIE} from "../../store/inputHandleReducer";
+import {auth} from "../../firebase";
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -13,14 +14,19 @@ const Header = () => {
     return (
         <header className="header">
             <div className="header-container">
-                <p className="header-logo">MOVIELAND</p>
+                <h1 className="header-logo">MOVIELAND</h1>
                 <input
                     type="text"
                     className="header-search"
                     onChange={(e) => renderMoviesHandle(e)}
                     placeholder="Search..."
                 />
-                <p>Log out</p>
+                <button
+                    className="header-logout"
+                    onClick={() => auth.signOut()}
+                >
+                    Log Out
+                </button>
             </div>
         </header>
     );

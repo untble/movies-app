@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import axios from "axios";
 import Movie from "../movie/Movie";
 import './Movies.css';
@@ -7,24 +7,18 @@ import {RENDER_MOVIES} from "../../store/moviesReducer";
 
 const URL = 'https://api.tvmaze.com/shows';
 
-const Movies = (props) => {
-
-    const inputData = useSelector(state => state);
+const Movies = () => {
+    const inputData = useSelector(state => state.inputReducer);
     const movies = useSelector(state => state);
     const dispatch = useDispatch();
-
 
     useEffect(() => {
         axios.get(URL)
             .then(response => {
                 dispatch({type: RENDER_MOVIES, payload: response.data.slice(0, 100)})
-
             })
     }, [])
 
-    useEffect(() => {
-
-    })
 
     const [listOfMovies] = movies.renderMoviesReducer;
     console.log(movies.renderMoviesReducer)
@@ -34,7 +28,7 @@ const Movies = (props) => {
                 {
                     listOfMovies?.map(movie => {
                         const {name, id, image} = movie;
-                        return name.toLowerCase().includes(inputData.inputReducer.toLowerCase()) && <Movie
+                        return name.toLowerCase().includes(inputData.toLowerCase()) && <Movie
                             key={id}
                             name={name}
                             image={image.medium}

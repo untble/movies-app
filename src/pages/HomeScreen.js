@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from "./header/Header";
-import Movies from "./movies/Movies";
+import Header from "../components/header/Header";
+import Movies from "../components/movies/Movies";
 
 const HomeScreen = () => {
     return (

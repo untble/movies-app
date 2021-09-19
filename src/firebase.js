@@ -1,3 +1,5 @@
+import firebase from "firebase/compat";
+
 const firebaseConfig = {
     apiKey: "AIzaSyBmfGazaOw0qQkdSjzcYV7IyG5odTF9b7c",
     authDomain: "movies-app-c61a1.firebaseapp.com",
@@ -6,3 +8,9 @@ const firebaseConfig = {
     messagingSenderId: "75912627378",
     appId: "1:75912627378:web:0e07cb906327351f8a35ab"
 };
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore();
+export const auth = firebase.auth();
+
+export default db;
