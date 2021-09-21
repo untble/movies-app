@@ -1,0 +1,149 @@
+.profile {
+    height: 100vh;
+    color: whitesmoke;
+    background-color: #2E353D;
+}
+
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+
+.profile-info {
+    display: flex;
+}
+
+.profile-body > h1 {
+    font-size: 60px;
+    font-weight: 400;
+    border-bottom: 1px solid whitesmoke;
+    margin-bottom: 20px;
+}
+
+.profile-info > img {
+    height: 100px;
+    border: 1px solid black;
+}
+
+.profile-details {
+    margin-left: 25px;
+    flex: 1;
+}
+
+.profile-plans-wrapper > h3 {
+    display: block;
+    border-bottom: 1px solid whitesmoke;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.profile-details > h2 {
+    padding: 15px 20px 15px 15px;
+    font-size: 15px;
+    background-color: #044B69;
+    border-radius: 3px;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: all .2s;
+    font-weight: 600;
+}
+
+.profile-details > form {
+    font-weight: 500;
+}
+
+.profile-details form input {
+    width: 90%;
+    padding: 16px 20px 16px 15px;
+    background-color: gray;
+    border: none;
+    color: whitesmoke;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.profile-details form button {
+    width: 10%;
+    padding: 16px 20px 16px 15px;
+    cursor: pointer;
+    background-color: gray;
+    border: none;
+    color: whitesmoke;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 1px solid whitesmoke;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.profile-details form button:hover {
+    background-color: #044B69;
+    transition: all .3s;
+}
+
+.profile-details > h2:hover {
+    background-color: gray;
+}
+
+.profile-details > h2 > button {
+    display: inline-block;
+    text-align: right;
+}
+
+.profile-signOut {
+    padding: 10px 20px;
+    font-size: 1rem;
+    width: 100%;
+    cursor: pointer;
+    background-color: #055F85;
+    font-weight: 600;
+    color: white;
+    border: none;
+    margin-top: 25px;
+    border-radius: 3px;
+}
+
+.profile-signOut:hover {
+    background-color: #044B69;
+    transition: all .2s;
+}
+
+.profile-plans {
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    justify-content: space-between;
+}
+
+.profile-plan {
+    display: flex;
+    padding-left: 20px;
+    justify-content: space-between;
+}
+
+.profile-plan > p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.profile-plan > button {
+    padding: 3px 20px;
+    color: whitesmoke;
+    background-color: #044B69;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.profile-plan > button:hover{
+    background-color: gray;
+    transition: all .2s;
+}

@@ -58,7 +58,7 @@ const Filters = () => {
                         {asc ? <ImArrowUp /> : <ImArrowDown />}
                     </div>
                     <select name="sorters" id="sorters" onClick={(e) => sortMovies(e)}>
-                        <option selected>Types of sort</option>
+                        <option defaultValue='Sorting'>Sorting</option>
                         <option value="name">Name</option>
                         <option value="rating">Rating</option>
                         <option value="year">Year</option>

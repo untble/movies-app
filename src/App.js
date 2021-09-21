@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import {useEffect} from "react";
 import {auth} from "./firebase";
 import {LOGOUT, LOGIN} from "./store/userReducer";
+import Profile from "./pages/profilePage/Profile";
 
 
 function App() {
@@ -30,7 +31,6 @@ function App() {
     }, [dispatch])
 
 
-
     return (
         <Router>
             {!user.user ? (
@@ -39,6 +39,9 @@ function App() {
                 <Switch>
                     <Route exact path='/'>
                         <HomePage/>
+                    </Route>
+                    <Route path='/profile'>
+                        <Profile />
                     </Route>
                 </Switch>
             )}

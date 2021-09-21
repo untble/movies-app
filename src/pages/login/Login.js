@@ -4,7 +4,7 @@ import Authentication from "../authentication/Authentication";
 import {auth} from "../../firebase";
 
 const Login = () => {
-    const [inputEmail, setInputEmail] = useState('')
+    const [inputEmail, setInputEmail] = useState('');
     const [showAuthComponent, setShowAuthComponent] = useState(false);
 
     const emailRef = useRef(null);
@@ -13,7 +13,6 @@ const Login = () => {
     const register = (e) => {
 
         e.preventDefault();
-
         auth.createUserWithEmailAndPassword(
             emailRef.current.value,
             passwordRef.current.value
@@ -27,7 +26,6 @@ const Login = () => {
     const signIn = (e) => {
 
         e.preventDefault();
-
         auth.signInWithEmailAndPassword(
             emailRef.current.value,
             passwordRef.current.value

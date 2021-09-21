@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import './Authentication.css';
-
+import {useHistory} from 'react-router-dom'
 
 const Authentication = ({inputEmail, emailRef, passwordRef, register, signIn}) => {
     const [email,setEmail] = useState(inputEmail);
     const [signUp, setSignUp] = useState(false);
     const title = signUp ? 'Sign Up' : 'Sign In';
+
+    const history = useHistory();
 
     return (
         <div className="auth">
@@ -25,7 +27,10 @@ const Authentication = ({inputEmail, emailRef, passwordRef, register, signIn}) =
                 />
                 <button
                     type="submit"
-                    onClick={(e) => signUp ? register(e) : signIn(e)}>
+                    onClick={(e) => {
+                        signUp ? register(e) : signIn(e);
+                        history.push('/')
+                    }}>
                     {title}
                 </button>
 

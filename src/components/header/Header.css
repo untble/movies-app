@@ -16,7 +16,7 @@
 
     font-family: 'IBM Plex Mono', monospace;
     color: #FFFFFF;
-   padding: 0 15px;
+    padding: 0 15px;
 }
 
 .header-logo {
@@ -24,28 +24,15 @@
     height: 30px;
     font-size: 24px;
     font-weight: 300;
-}
-
-.header-search {
-    min-width: 335px;
-    height: 30px;
-    cursor: pointer;
-    display: inline-block;
-    border: none;
-    padding: 11px 12px 11px 9px;
-    border-radius: 4px;
-    color: #FFFFFF;
-    background-color: #444b54;
-    line-height: 0;
-    margin-left: 15px;
-    outline-width: 0;
-}
-
-.header-logout {
-    background-color: white;
-    color: black;
-    padding:5px 10px;
-    border-radius: 5px;
-    border: 0;
     cursor: pointer;
 }
+
+
+/*.header-button {*/
+/*    background-color: white;*/
+/*    color: black;*/
+/*    padding:5px 10px;*/
+/*    border-radius: 5px;*/
+/*    border: 0;*/
+/*    cursor: pointer;*/
+/*}*/

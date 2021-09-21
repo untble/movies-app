@@ -1,34 +1,25 @@
 import React from 'react';
-import './Header.css';
-import {useDispatch} from "react-redux";
-import {INPUT_MOVIE} from "../../store/inputHandleReducer";
-import {auth} from "../../firebase";
+import {useHistory} from 'react-router-dom';
+import './Header.css'
 
 const Header = () => {
-    const dispatch = useDispatch();
-
-    const renderMoviesHandle = (e) => {
-        dispatch({type: INPUT_MOVIE, payload: e.target.value})
-    }
-
+    const history = useHistory();
     return (
-        <header className="header">
-            <div className="header-container">
-                <h1 className="header-logo">MOVIELAND</h1>
-                <input
-                    type="text"
-                    className="header-search"
-                    onChange={(e) => renderMoviesHandle(e)}
-                    placeholder="Search..."
-                />
-                <button
-                    className="header-logout"
-                    onClick={() => auth.signOut()}
-                >
-                    Log Out
-                </button>
-            </div>
-        </header>
+        <div>
+            <header className="header">
+                <div className="header-container">
+                    <h1 className="header-logo"
+                        onClick={() => history.push('/')}
+                    >MOVIELAND</h1>
+                    <img
+                        className="header-avatar"
+                        src="https://www.unmc.edu/cihc/_images/faculty/default.jpg"
+                        alt="avatar"
+                        onClick={() => history.push('/profile')}
+                    />
+                </div>
+            </header>
+        </div>
     );
 };
 
