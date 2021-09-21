@@ -1,4 +1,4 @@
-.signIn {
+.auth {
     max-width: 500px;
     padding: 70px;
     margin: 0 auto;
@@ -7,17 +7,17 @@
     width: 400px;
 }
 
-.signIn > form {
+.auth > form {
     display: grid;
     flex-direction: column;
 }
 
-.signIn > form > h1 {
+.auth > form > h1 {
     text-align: left;
     margin-bottom: 20px;
 }
 
-.signIn > form > input {
+.auth > form > input {
     outline-width: 0;
     height: 40px;
     margin-bottom: 14px;
@@ -25,13 +25,13 @@
     border-radius: 5px;
 }
 
-.signIn > form > h4 {
+.auth > form > h4 {
     text-align: left;
     margin-top: 25px;
     font-weight: 400;
 }
 
-.signIn > form > button {
+.auth > form > button {
     padding: 16px 20px;
     font-size: 1rem;
     border-radius: 5px;
@@ -42,11 +42,11 @@
     cursor: pointer;
 }
 
-.signIn-gray {
+.auth-gray {
     color: gray;
 }
 
-.signIn-link:hover {
+.auth-link:hover {
     cursor: pointer;
     text-decoration: underline;
 }

@@ -15,9 +15,10 @@ const Movies = () => {
     useEffect(() => {
         axios.get(URL)
             .then(response => {
-                dispatch({type: RENDER_MOVIES, payload: response.data.slice(0, 100)})
+                dispatch({type: RENDER_MOVIES, payload: response.data})
             })
     }, [])
+
 
 
     const [listOfMovies] = movies.renderMoviesReducer;
@@ -28,12 +29,13 @@ const Movies = () => {
                 {
                     listOfMovies?.map(movie => {
                         const {name, id, image} = movie;
-                        return name.toLowerCase().includes(inputData.toLowerCase()) && <Movie
-                            key={id}
-                            name={name}
-                            image={image.medium}
-                            {...movie}
-                        />
+                        return name.toLowerCase().includes(inputData.toLowerCase()) && (<Movie
+                                key={id}
+                                name={name}
+                                image={image.medium}
+                                {...movie}
+                            />
+                        )
                     })
                 }
             </div>

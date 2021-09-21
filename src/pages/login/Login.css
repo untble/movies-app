@@ -25,18 +25,6 @@
 
 }
 
-.login-button {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    padding: 10px 20px;
-
-    background-color: #055F85;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
 .login-body {
     z-index: 1;
     color: white;

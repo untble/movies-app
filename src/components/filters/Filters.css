@@ -1,0 +1,60 @@
+.filters {
+    margin: 0 auto 40px;
+    width: 80vw;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.count-info-title{
+    color: #8896a1;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.count-info-amount {
+    font-size: 24px;
+}
+
+.sorters-title {
+    text-align: right;
+    color: #8896a1;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+#sorters {
+    background-color: #2E353D;
+    color: #fff;
+    padding: 7px 120px 6px 0;
+    line-height: 22px;
+    border: none;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+}
+
+#sorters > option {
+    background-color: white;
+    color: black;
+}
+
+
+.sorters {
+    display: flex;
+    align-items: center;
+}
+
+.sort-direction {
+    background-color: #2E353D;
+    padding: 4px 8px;
+    height: 100%;
+    border-right: 1px solid white;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    cursor: pointer;
+}
+.sort-direction svg {
+    color: white;
+}

@@ -1,7 +1,7 @@
 import './App.css';
 import {connect, useDispatch, useSelector} from "react-redux";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import HomeScreen from "./pages/HomeScreen";
+import HomePage from "./pages/homePage/HomePage";
 import Login from "./pages/login/Login";
 import {useEffect} from "react";
 import {auth} from "./firebase";
@@ -24,12 +24,12 @@ function App() {
             } else {
                 dispatch({type: LOGOUT})
             }
-            console.log('useEffect', userAuth?.email, userAuth?.uid)
+            return () => unsubscribe();
 
         })
     }, [dispatch])
 
-    console.log('User ' + user.user)
+
 
     return (
         <Router>
@@ -38,7 +38,7 @@ function App() {
             ) : (
                 <Switch>
                     <Route exact path='/'>
-                        <HomeScreen/>
+                        <HomePage/>
                     </Route>
                 </Switch>
             )}

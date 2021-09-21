@@ -1,25 +1,60 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import './Login.css';
-import SignIn from "../signIn/SignIn";
+import Authentication from "../authentication/Authentication";
+import {auth} from "../../firebase";
 
 const Login = () => {
     const [inputEmail, setInputEmail] = useState('')
-    const [signIn, setSignIn] = useState(false);
+    const [showAuthComponent, setShowAuthComponent] = useState(false);
+
+    const emailRef = useRef(null);
+    const passwordRef = useRef(null);
+
+    const register = (e) => {
+
+        e.preventDefault();
+
+        auth.createUserWithEmailAndPassword(
+            emailRef.current.value,
+            passwordRef.current.value
+        ).then((authUser) => {
+            console.log(authUser)
+        }).catch(error => {
+            alert(error.message)
+        })
+    }
+
+    const signIn = (e) => {
+
+        e.preventDefault();
+
+        auth.signInWithEmailAndPassword(
+            emailRef.current.value,
+            passwordRef.current.value
+        ).then((authUser) => {
+            console.log(authUser)
+        }).catch(error => {
+            alert(error.message)
+        })
+    }
 
 
     return (
         <div className='login' style={{backgroundColor: 'cadetblue'}}>
             <div className='login-background'>
                 <h1 className='login-logo'>MOVIELAND</h1>
-                <button
-                    className='login-button'
-                    onClick={() => setSignIn(true)}
-                >Sign In
-                </button>
+
             </div>
             <div className="login-body">
-                {signIn ? (
-                    <SignIn inputEmail={inputEmail}/>
+                {showAuthComponent ? (
+                    <Authentication inputEmail={inputEmail}
+                                    emailRef={emailRef}
+                                    passwordRef={passwordRef}
+                                    register={(e) => register(e)}
+                                    signIn={(e) => signIn(e)}
+
+
+                    />
                 ) : (
                     <>
                         <h1>Unlimited Movies, Feel Free To Join Us.</h1>
@@ -35,7 +70,7 @@ const Login = () => {
                                 />
                                 <button
                                     className="login-getStarted"
-                                    onClick={() => setSignIn(true)}
+                                    onClick={() => setShowAuthComponent(true)}
                                 >GET STARTED
                                 </button>
                             </form>
