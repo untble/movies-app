@@ -7,6 +7,7 @@ import {useEffect} from "react";
 import {auth} from "./firebase";
 import {LOGOUT, LOGIN} from "./store/userReducer";
 import Profile from "./pages/profilePage/Profile";
+import Favourites from "./pages/favouritesMoviesPage/Favourites";
 
 
 function App() {
@@ -40,8 +41,11 @@ function App() {
                     <Route exact path='/'>
                         <HomePage/>
                     </Route>
-                    <Route path='/profile'>
+                    <Route exact path='/profile'>
                         <Profile />
+                    </Route>
+                    <Route exact path='/favourites'>
+                        <Favourites />
                     </Route>
                 </Switch>
             )}

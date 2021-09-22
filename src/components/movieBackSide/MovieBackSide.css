@@ -6,7 +6,6 @@
     width: 110%;
     height: 99%;
     border-radius:5px;
-    cursor: pointer;
     color: #FFFFFF;
 
     padding: 8px 20px;
@@ -25,4 +24,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.backside-summary {
+    font-size: 14px;
+    color: #99abb6;
+}
+
+.backside-summary b {
+    color: white;
+}
+
+.backside-bottom {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
 }

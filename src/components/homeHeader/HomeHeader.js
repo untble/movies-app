@@ -3,6 +3,8 @@ import './HomeHeader.css';
 import {useDispatch} from "react-redux";
 import {INPUT_MOVIE} from "../../store/inputHandleReducer";
 import { useHistory } from "react-router-dom";
+import {FaStar, FaUserFriends} from "react-icons/all";
+
 
 
 const HomeHeader = () => {
@@ -23,12 +25,17 @@ const HomeHeader = () => {
                     onChange={(e) => renderMoviesHandle(e)}
                     placeholder="Search..."
                 />
-                <img
-                    className="header-avatar"
-                    src="https://www.unmc.edu/cihc/_images/faculty/default.jpg"
-                    alt="avatar"
-                    onClick={() => history.push('/profile')}
-                />
+                <div className="header-icons">
+                    <FaStar className="icon-star" onClick={() => history.push('/favourites')}/>
+                    <FaUserFriends className="icon-friends"/>
+                    <img
+                        className="header-avatar"
+                        src="https://www.unmc.edu/cihc/_images/faculty/default.jpg"
+                        alt="avatar"
+                        onClick={() => history.push('/profile')}
+                    />
+                </div>
+
             </div>
         </header>
     );
