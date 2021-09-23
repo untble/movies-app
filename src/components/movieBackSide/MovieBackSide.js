@@ -2,15 +2,31 @@ import React from 'react';
 import './MovieBackSide.css';
 import {FaFilm, GoPlus} from "react-icons/all";
 import {useHistory} from 'react-router-dom';
+import {useSelector} from "react-redux";
+import db from "../../firebase";
+import firebase from "firebase/compat";
 
-const MovieBackSide = ({name, genres, runtime, premiered, rating, summary}) => {
+const MovieBackSide = ({name, genres, runtime, premiered, rating, summary,image}) => {
     const history = useHistory();
+    const user = useSelector(state => state.userReducer.user);
+
     const truncate = (str, n) => {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     }
     const createMarkup = () => {
         return {__html: truncate(summary, 150)};
     }
+
+    const addToFavourites = () => {
+        db.collection('users').doc(user.uid).update({
+            favourites: firebase.firestore.FieldValue.arrayUnion({
+                name,genres,runtime,premiered,rating,summary,image
+            })
+        }).catch(err => console.log(err))
+    }
+
+
+
     return (
         <div className="backside-movie">
             <h2 className="backside-title">{name}</h2>
@@ -21,8 +37,8 @@ const MovieBackSide = ({name, genres, runtime, premiered, rating, summary}) => {
                 <span className="backside-rating">IMDB {rating.average}</span>
             </p>
             <p className="backside-summary" dangerouslySetInnerHTML={createMarkup()}/>
-            <div className="backside-bottom">
-                <GoPlus />
+            <div className="backside-bottom" onClick={() => addToFavourites()}>
+                <GoPlus/>
                 <span>Add to your favourites</span>
             </div>
         </div>

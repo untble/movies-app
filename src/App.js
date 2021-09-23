@@ -9,10 +9,12 @@ import {LOGOUT, LOGIN} from "./store/userReducer";
 import Profile from "./pages/profilePage/Profile";
 import Favourites from "./pages/favouritesMoviesPage/Favourites";
 
+import db from './firebase'
 
 function App() {
     const user = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
+
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(userAuth => {
@@ -23,6 +25,16 @@ function App() {
                         email: userAuth.email
                     }
                 })
+                const userFromFirestore = db.collection('users').doc(userAuth.uid);
+
+                if(!userFromFirestore.id) {
+                    userFromFirestore.set({
+                        username: userAuth.email.split('@')[0],
+                        email: userAuth.email,
+                        favourites: []
+                    }).then(() => console.log('Success'))
+                }
+
             } else {
                 dispatch({type: LOGOUT})
             }

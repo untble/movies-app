@@ -18,6 +18,7 @@ const Movie = ({name, image, ...movie}) => {
                 premiered={movie.premiered}
                 rating={movie.rating}
                 summary={movie.summary}
+                image={image.medium}
             />
             }
         </div>
