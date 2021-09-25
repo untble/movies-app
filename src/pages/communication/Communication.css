@@ -1,0 +1,24 @@
+.communication-body {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.switch-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+
+.switch-buttons button {
+    padding: 25px 100px;
+    border-radius: 5px;
+    border: none;
+    background-color: #414850;
+    color: white;
+    cursor: pointer;
+}
+
+.switch-buttons button:hover {
+    background-color: #2E353D;
+    transition: all .3s;
+}

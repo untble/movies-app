@@ -9,7 +9,7 @@ const URL = 'https://api.tvmaze.com/shows';
 
 const Movies = () => {
     const inputData = useSelector(state => state.inputReducer);
-    const movies = useSelector(state => state);
+    const movies = useSelector(state => state.renderMoviesReducer);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,14 +20,11 @@ const Movies = () => {
     }, [])
 
 
-
-    const [listOfMovies] = movies.renderMoviesReducer;
-    console.log(movies.renderMoviesReducer)
     return (
         <div className="movies">
             <div className="movies-container">
                 {
-                    listOfMovies?.map(movie => {
+                    movies?.map(movie => {
                         const {name, id, image} = movie;
                         return name.toLowerCase().includes(inputData.toLowerCase()) && (<Movie
                                 key={id}

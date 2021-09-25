@@ -6,41 +6,37 @@ import {RENDER_MOVIES} from "../../store/moviesReducer";
 
 const Filters = () => {
     const inputData = useSelector(state => state.inputReducer);
-    const movies = useSelector(state => state.renderMoviesReducer[0]);
+    const movies = useSelector(state => state.renderMoviesReducer);
     const dispatch = useDispatch();
 
     const [asc,setAsc] = useState(true);
 
     console.log(movies)
     const sortMovies = (e) => {
-        let sorted;
+        const sorted = [...movies];
         switch (e.target.value) {
             case 'name': {
-                sorted = movies.sort((a,b) => asc ? a.name.localeCompare(b.name) :
+                sorted.sort((a,b) => asc ? a.name.localeCompare(b.name) :
                     b.name.localeCompare(a.name));
-                dispatch({type: RENDER_MOVIES, payload: sorted});
                 break;
             }
             case 'rating': {
-                sorted = movies.sort((a,b) => asc ? a.rating.average - b.rating.average :
+                sorted.sort((a,b) => asc ? a.rating.average - b.rating.average :
                     b.rating.average - a.rating.average);
-                dispatch({type: RENDER_MOVIES, payload: sorted});
                 break;
             }
             case 'year': {
-                sorted = movies.sort((a,b) => asc ? +a.premiered.split('-')[0] - b.premiered.split('-')[0] :
+                sorted.sort((a,b) => asc ? +a.premiered.split('-')[0] - b.premiered.split('-')[0] :
                     +b.premiered.split('-')[0] - a.premiered.split('-')[0]);
-                dispatch({type: RENDER_MOVIES, payload: sorted});
                 break;
             }
             case 'updated': {
-                sorted = movies.sort((a,b) => asc ? a.updated - b.updated :
+                sorted.sort((a,b) => asc ? a.updated - b.updated :
                     b.updated - a.updated);
-                dispatch({type: RENDER_MOVIES, payload: sorted});
                 break;
             }
-
         }
+        dispatch({type: RENDER_MOVIES, payload: sorted});
     }
 
     return (

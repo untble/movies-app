@@ -1,31 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import Header from "../../components/header/Header";
-import db from '../../firebase'
 import {useSelector} from "react-redux";
 import FavouriteMovieCard from "../../components/favouriteMovieCard/FavouriteMovieCard";
-import firebase from "firebase/compat";
+import Header from "../../components/header/Header";
+import {getUser, removeFavourite} from "../../services/usersService";
 
 const Favourites = () => {
-    const user = useSelector(state => state.userReducer.user);
-    const [movies, setMovies] = useState();
+    const id = useSelector(state => state.userReducer.user.uid);
+    const [user, setUser] = useState();
 
     useEffect(() => {
-        db.collection('users')
-            .doc(user.uid).get()
-            .then(snapShot => {
-                setMovies(snapShot.data());
-            })
-    }, [user.uid])
+        console.log(id)
+        getUser(id).then(user => setUser(user));
+    }, [id])
 
     const removeFromFavorites = (movie) => {
-        db.collection('users')
-            .doc(user.uid)
-            .update({
-                favourites: firebase.firestore.FieldValue.arrayRemove(movie)
-            }).then(() => {
-            setMovies({
-                ...movies,
-                favourites: movies.favourites.filter(m => m.name !== movie.name)
+        removeFavourite(movie, id).then(() => {
+            setUser({
+                ...user,
+                favourites: user.favourites.filter(userMovie => userMovie.id !== movie.id)
             })
         });
     }
@@ -34,8 +26,11 @@ const Favourites = () => {
         <div className="favourites">
             <Header/>
             {
-                movies && movies.favourites.map(movie => (
-                    <FavouriteMovieCard movie={movie} removeFromFavorites={removeFromFavorites}/>
+                user && user.favourites.map(movie => (
+                    <FavouriteMovieCard
+                        key={movie.name}
+                        movie={movie}
+                        removeFromFavorites={removeFromFavorites}/>
                 ))
             }
         </div>

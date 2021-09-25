@@ -1,0 +1,57 @@
+.user-card {
+    height: fit-content;
+    width: 50%;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px auto;
+    border: 1px solid black;
+}
+
+.user-card-info-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.user-card-info-wrapper img {
+    height: 70px;
+}
+
+.user-card-info {
+    width: 100%;
+    padding-right:20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-card-info h2 {
+    padding-left: 5px;
+}
+
+.user-card-info button{
+    background-color: #2E353D;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.user-card-favourites {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.user-card-favourites img {
+    padding-right: 10px;
+    padding-bottom: 10px;
+    height: 100px;
+}
+
+.user-card-favourites img:hover {
+    cursor: pointer;
+    transform: scale(1.07);
+    transition: all .3s;
+}

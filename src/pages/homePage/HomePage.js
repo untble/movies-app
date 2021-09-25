@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeHeader from "../../components/homeHeader/HomeHeader";
+import Header from "../../components/header/Header";
 import Movies from "../../components/movies/Movies";
 import Filters from "../../components/filters/Filters";
 import './HomePage.css'
@@ -7,7 +7,7 @@ import './HomePage.css'
 const HomePage = () => {
     return (
         <div className="home-page">
-            <HomeHeader/>
+            <Header/>
             <Filters/>
             <Movies/>
         </div>

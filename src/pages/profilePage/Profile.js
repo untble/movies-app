@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {auth} from "../../firebase";
-import Header from "../../components/header/Header";
 import './Profile.css';
+import Header from "../../components/header/Header";
 
 const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

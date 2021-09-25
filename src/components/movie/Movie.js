@@ -12,6 +12,7 @@ const Movie = ({name, image, ...movie}) => {
             <img src={image.medium} alt={name} className="movie-img"/>
             <span className="movie-name">{name}</span>
             {isHovered && <MovieBackSide
+                id={movie.id}
                 name={name}
                 genres={movie.genres}
                 runtime={movie.runtime}

@@ -11,7 +11,6 @@ const Login = () => {
     const passwordRef = useRef(null);
 
     const register = (e) => {
-
         e.preventDefault();
         auth.createUserWithEmailAndPassword(
             emailRef.current.value,
@@ -24,7 +23,6 @@ const Login = () => {
     }
 
     const signIn = (e) => {
-
         e.preventDefault();
         auth.signInWithEmailAndPassword(
             emailRef.current.value,

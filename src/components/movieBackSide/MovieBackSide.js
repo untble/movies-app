@@ -1,13 +1,11 @@
 import React from 'react';
 import './MovieBackSide.css';
 import {FaFilm, GoPlus} from "react-icons/all";
-import {useHistory} from 'react-router-dom';
 import {useSelector} from "react-redux";
 import db from "../../firebase";
 import firebase from "firebase/compat";
 
-const MovieBackSide = ({name, genres, runtime, premiered, rating, summary,image}) => {
-    const history = useHistory();
+const MovieBackSide = ({name, genres, runtime, premiered, rating, summary,image, id}) => {
     const user = useSelector(state => state.userReducer.user);
 
     const truncate = (str, n) => {
@@ -20,11 +18,10 @@ const MovieBackSide = ({name, genres, runtime, premiered, rating, summary,image}
     const addToFavourites = () => {
         db.collection('users').doc(user.uid).update({
             favourites: firebase.firestore.FieldValue.arrayUnion({
-                name,genres,runtime,premiered,rating,summary,image
+                name,genres,runtime,premiered,rating,summary,image,id
             })
         }).catch(err => console.log(err))
     }
-
 
 
     return (

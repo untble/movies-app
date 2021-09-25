@@ -10,6 +10,7 @@ import Profile from "./pages/profilePage/Profile";
 import Favourites from "./pages/favouritesMoviesPage/Favourites";
 
 import db from './firebase'
+import Communication from "./pages/communication/Communication";
 
 function App() {
     const user = useSelector(state => state.userReducer);
@@ -27,14 +28,17 @@ function App() {
                 })
                 const userFromFirestore = db.collection('users').doc(userAuth.uid);
 
-                if(!userFromFirestore.id) {
-                    userFromFirestore.set({
-                        username: userAuth.email.split('@')[0],
-                        email: userAuth.email,
-                        favourites: []
-                    }).then(() => console.log('Success'))
-                }
-
+                userFromFirestore.get()
+                    .then((docSnapshot) => {
+                        if(!docSnapshot.exists) {
+                            userFromFirestore.set({
+                                username: userAuth.email.split('@')[0],
+                                email: userAuth.email,
+                                favourites: [],
+                                friends: []
+                            }).then(() => console.log('Success'))
+                        }
+                    })
             } else {
                 dispatch({type: LOGOUT})
             }
@@ -58,6 +62,9 @@ function App() {
                     </Route>
                     <Route exact path='/favourites'>
                         <Favourites />
+                    </Route>
+                    <Route exact path='/communication'>
+                        <Communication />
                     </Route>
                 </Switch>
             )}
