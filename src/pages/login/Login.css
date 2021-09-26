@@ -56,6 +56,29 @@
     margin-top: 15px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+    .login-body > h1 {
+        font-size: 1.7rem;
+    }
+    .login-body > h2 {
+        font-size: 1.1rem;
+    }
+
+    .login-body > h3 {
+        font-size: 0.7rem;
+    }
+
+    .login-form > input {
+        flex: 1;
+    }
+
+    .login-getStarted {
+        width: 100%;
+    }
+
 }
 
 

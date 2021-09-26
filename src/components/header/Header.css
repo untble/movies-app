@@ -33,7 +33,8 @@
 }
 
 .header-search {
-    min-width: 335px;
+    min-width: 100px;
+    width: 335px;
     height: 30px;
     cursor: pointer;
     display: inline-block;
@@ -79,4 +80,16 @@
 .icon-star:hover, .icon-friends:hover {
     color: white;
     cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .header-search {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .header-search {
+        display: none;
+    }
 }

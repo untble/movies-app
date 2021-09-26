@@ -1,6 +1,6 @@
 .user-card {
     height: fit-content;
-    width: 50%;
+    width: 60%;
     border-radius: 20px;
     padding: 20px;
     margin: 10px auto;
@@ -54,4 +54,13 @@
     cursor: pointer;
     transform: scale(1.07);
     transition: all .3s;
+}
+
+@media screen and (max-width: 900px) {
+    .user-card {
+        width: 80%;
+    }
+    .user-card-info h2 {
+        font-size: 18px;
+    }
 }

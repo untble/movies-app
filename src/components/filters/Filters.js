@@ -11,6 +11,7 @@ const Filters = () => {
 
     const [asc,setAsc] = useState(true);
 
+
     console.log(movies)
     const sortMovies = (e) => {
         const sorted = [...movies];
@@ -35,6 +36,7 @@ const Filters = () => {
                     b.updated - a.updated);
                 break;
             }
+            default: return e.target.value;
         }
         dispatch({type: RENDER_MOVIES, payload: sorted});
     }

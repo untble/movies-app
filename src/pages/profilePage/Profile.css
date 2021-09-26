@@ -54,6 +54,8 @@
 
 .profile-details > form {
     font-weight: 500;
+    width: 100%;
+    display: flex;
 }
 
 .profile-details form input {
@@ -70,7 +72,6 @@
 }
 
 .profile-details form button {
-    width: 10%;
     padding: 16px 20px 16px 15px;
     cursor: pointer;
     background-color: gray;
@@ -118,12 +119,14 @@
 .profile-plans {
     display: flex;
     flex-direction: column;
+
     height: 180px;
     justify-content: space-between;
 }
 
 .profile-plan {
     display: flex;
+
     padding-left: 20px;
     justify-content: space-between;
 }
@@ -144,7 +147,29 @@
 
 }
 
-.profile-plan > button:hover{
+.profile-plan > button:hover {
     background-color: gray;
     transition: all .2s;
+}
+
+@media screen and (max-width: 620px) {
+    .profile-body > h1 {
+        font-size: 44px;
+    }
+
+    .profile-info > img {
+        height: 75px;
+    }
+
+    .profile-plan {
+        padding-left: 0;
+    }
+
+    .profile-plans, .profile-signOut {
+        margin-left: -35px;
+    }
+
+    .profile-signOut {
+        padding: 10px 25px;
+    }
 }
