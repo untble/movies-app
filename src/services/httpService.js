@@ -13,7 +13,7 @@ export const getCollection = async (collectionPath) => {
 
 export const getDocumentById = async (collectionPath, id) => {
     const snapShot = await db.collection(collectionPath).doc(id).get();
-    console.log('SnapShot', {...snapShot.data()})
+    console.log("SnapShot", snapShot.data())
     return {...snapShot.data(), id};
 }
 
@@ -25,9 +25,9 @@ export const getFavouriteMovie = async (collectionPath, movie, id) => {
         })
 }
 
-export const deleteDocumentById = async (collectionPath, id) => {
-    console.log(collectionPath,id);
-    return db.collection(collectionPath)
-        .doc(id)
-        .delete()
-}
+// export const deleteDocumentById = async (collectionPath, id) => {
+//     console.log(collectionPath,id);
+//     return db.collection(collectionPath)
+//         .doc(id)
+//         .delete()
+// }

@@ -5,8 +5,8 @@ import {useSelector} from "react-redux";
 import db from "../../firebase";
 import firebase from "firebase/compat";
 
-const MovieBackSide = ({name, genres, runtime, premiered, rating, summary,image, id}) => {
-    const user = useSelector(state => state.userReducer.user);
+const MovieBackSide = ({name, genres, runtime, premiered, rating, summary, image, id}) => {
+    const user = useSelector(state => state.user);
 
     const truncate = (str, n) => {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -18,7 +18,7 @@ const MovieBackSide = ({name, genres, runtime, premiered, rating, summary,image,
     const addToFavourites = () => {
         db.collection('users').doc(user.uid).update({
             favourites: firebase.firestore.FieldValue.arrayUnion({
-                name,genres,runtime,premiered,rating,summary,image,id
+                name, genres, runtime, premiered, rating, summary, image, id
             })
         }).catch(err => console.log(err))
     }
@@ -34,7 +34,7 @@ const MovieBackSide = ({name, genres, runtime, premiered, rating, summary,image,
                 <span className="backside-rating">IMDB {rating.average}</span>
             </p>
             <p className="backside-summary" dangerouslySetInnerHTML={createMarkup()}/>
-            <div className="backside-bottom" onClick={() => addToFavourites()}>
+            <div className="backside-footer" onClick={() => addToFavourites()}>
                 <GoPlus/>
                 <span>Add to your favourites</span>
             </div>

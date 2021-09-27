@@ -8,19 +8,18 @@ import {useSelector} from "react-redux";
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
     const friends = useSelector(state => state.friends);
-    const currentUserID = useSelector(state => state.userReducer.user.uid)
+    const currentUserID = useSelector(state => state.user.uid)
 
     useEffect(() => {
         getUsers().then(users => setUsers(users))
     }, [friends]);
 
-    console.log(users);
     return (
         <div className="users">
             {
-                users && users.map(user => {
-                    return currentUserID !== user.id && <UserCard key={user.id} user={user}/>
-                })
+                users && users.map(user => (
+                    currentUserID !== user.id && <UserCard key={user.id} user={user}/>
+                ))
             }
         </div>
     );

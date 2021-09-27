@@ -48,8 +48,6 @@ const Login = () => {
                                     passwordRef={passwordRef}
                                     register={(e) => register(e)}
                                     signIn={(e) => signIn(e)}
-
-
                     />
                 ) : (
                     <>

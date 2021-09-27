@@ -7,8 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {ADD_FRIEND, REMOVE_FRIEND} from "../../store/friendsReducer";
 
 const UserCard = ({user, showRemoveBtn}) => {
-    const currentUser = useSelector(state => state.userReducer.user);
-    const friends = useSelector(state => state.friends);
+    const currentUser = useSelector(state => state.user);
     const dispatch = useDispatch();
 
     const followUser = () => {

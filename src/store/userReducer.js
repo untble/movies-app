@@ -7,8 +7,8 @@ const defaultState = {
 
 export const userReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case LOGIN: return {user: action.payload}
-        case LOGOUT: return {user: null}
+        case LOGIN: return action.payload
+        case LOGOUT: return null
         default: return state
     }
 }

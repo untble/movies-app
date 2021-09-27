@@ -5,11 +5,10 @@ import Header from "../../components/header/Header";
 import {getUser, removeFavourite} from "../../services/usersService";
 
 const Favourites = () => {
-    const id = useSelector(state => state.userReducer.user.uid);
+    const id = useSelector(state => state.user.uid);
     const [user, setUser] = useState();
 
     useEffect(() => {
-        console.log(id)
         getUser(id).then(user => setUser(user));
     }, [id])
 

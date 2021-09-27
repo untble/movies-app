@@ -5,14 +5,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {RENDER_MOVIES} from "../../store/moviesReducer";
 
 const Filters = () => {
-    const inputData = useSelector(state => state.inputReducer);
-    const movies = useSelector(state => state.renderMoviesReducer);
+    const inputData = useSelector(state => state.inputData);
+    const movies = useSelector(state => state.movies);
     const dispatch = useDispatch();
 
     const [asc,setAsc] = useState(true);
 
-
-    console.log(movies)
     const sortMovies = (e) => {
         const sorted = [...movies];
         switch (e.target.value) {

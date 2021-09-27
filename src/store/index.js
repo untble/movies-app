@@ -5,10 +5,10 @@ import {userReducer} from "./userReducer";
 import {handleFriendsReducer} from "./friendsReducer";
 
 const rootReducer = combineReducers({
-    inputReducer: inputHandleReducer,
-    renderMoviesReducer: renderMoviesReducer,
+    inputData: inputHandleReducer,
+    movies: renderMoviesReducer,
     friends: handleFriendsReducer,
-    userReducer
+    user : userReducer
 })
 
 export const store = createStore(rootReducer,

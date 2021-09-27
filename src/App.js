@@ -13,7 +13,8 @@ import db from './firebase'
 import Communication from "./pages/communication/Communication";
 
 function App() {
-    const user = useSelector(state => state.userReducer);
+    const user = useSelector(state => state.user);
+    console.log('User', user)
     const dispatch = useDispatch();
 
 
@@ -50,7 +51,7 @@ function App() {
 
     return (
         <Router>
-            {!user.user ? (
+            {!user? (
                 <Login/>
             ) : (
                 <Switch>

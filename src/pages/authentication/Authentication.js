@@ -6,7 +6,6 @@ const Authentication = ({inputEmail, emailRef, passwordRef, register, signIn}) =
     const [email,setEmail] = useState(inputEmail);
     const [signUp, setSignUp] = useState(false);
     const title = signUp ? 'Sign Up' : 'Sign In';
-
     const history = useHistory();
 
     return (
@@ -44,7 +43,6 @@ const Authentication = ({inputEmail, emailRef, passwordRef, register, signIn}) =
                     </span>
                     </h4>
                 )}
-
             </form>
         </div>
     );

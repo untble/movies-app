@@ -1,17 +1,16 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import UserCard from "../userCard/UserCard";
-import db from "../../firebase";
 import {SET_FRIENDS} from "../../store/friendsReducer";
+import {getUser} from "../../services/usersService";
 
 const Friends = () => {
     const friends = useSelector(state => state.friends);
-    const currentUserID = useSelector(state => state.userReducer.user.uid);
+    const currentUserID = useSelector(state => state.user.uid);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const docRef = db.collection('users').doc(currentUserID).get();
-        docRef.then(doc => dispatch({type: SET_FRIENDS, payload: doc.data().friends}))
+        getUser(currentUserID).then(user => dispatch({type: SET_FRIENDS, payload: user.friends}))
     }, [currentUserID, dispatch])
 
     return (
@@ -21,7 +20,8 @@ const Friends = () => {
                     <UserCard
                         key={friend.id}
                         user={friend}
-                        showRemoveBtn/>
+                        showRemoveBtn
+                    />
                 ))
             }
         </div>

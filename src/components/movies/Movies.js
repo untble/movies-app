@@ -8,8 +8,8 @@ import {RENDER_MOVIES} from "../../store/moviesReducer";
 const URL = 'https://api.tvmaze.com/shows';
 
 const Movies = () => {
-    const inputData = useSelector(state => state.inputReducer);
-    const movies = useSelector(state => state.renderMoviesReducer);
+    const inputData = useSelector(state => state.inputData);
+    const movies = useSelector(state => state.movies);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const Movies = () => {
             .then(response => {
                 dispatch({type: RENDER_MOVIES, payload: response.data})
             })
-    }, [])
+    }, [dispatch])
 
 
     return (
