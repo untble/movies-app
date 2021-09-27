@@ -2,7 +2,7 @@ import './App.css';
 import {connect, useDispatch, useSelector} from "react-redux";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage";
-import Login from "./pages/login/Login";
+import Authentication from "./pages/login/Authentication";
 import {useEffect} from "react";
 import {auth} from "./firebase";
 import {LOGOUT, LOGIN} from "./store/userReducer";
@@ -52,7 +52,7 @@ function App() {
     return (
         <Router>
             {!user? (
-                <Login/>
+                <Authentication/>
             ) : (
                 <Switch>
                     <Route exact path='/'>

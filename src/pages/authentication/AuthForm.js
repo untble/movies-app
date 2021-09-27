@@ -1,12 +1,41 @@
 import React, {useState} from 'react';
-import './Authentication.css';
+import './AuthForm.css';
 import {useHistory} from 'react-router-dom'
+import {auth} from "../../firebase";
 
-const Authentication = ({inputEmail, emailRef, passwordRef, register, signIn}) => {
-    const [email,setEmail] = useState(inputEmail);
+//AuthenticationForm
+const AuthForm = ({defaultEmail}) => {
+    const [email, setEmail] = useState(defaultEmail.toString());
+    const [password, setPassword] = useState('');
     const [signUp, setSignUp] = useState(false);
     const title = signUp ? 'Sign Up' : 'Sign In';
     const history = useHistory();
+
+    const register = () => {
+        auth.createUserWithEmailAndPassword(
+            email, password
+        ).then((authUser) => {
+            console.log(authUser)
+        }).catch(error => {
+            alert(error.message)
+        })
+    }
+
+    const signIn = () => {
+        auth.signInWithEmailAndPassword(
+            email, password
+        ).then((authUser) => {
+            console.log(authUser)
+        }).catch(error => {
+            alert(error.message)
+        })
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        signUp ? register() : signIn();
+        history.push('/');
+    }
 
     return (
         <div className="auth">
@@ -15,21 +44,16 @@ const Authentication = ({inputEmail, emailRef, passwordRef, register, signIn}) =
                 <input
                     type="Email"
                     placeholder="Email"
-                    ref={emailRef}
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
                 />
                 <input
                     type="password"
                     placeholder="Password"
-                    ref={passwordRef}
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                 />
-                <button
-                    type="submit"
-                    onClick={(e) => {
-                        signUp ? register(e) : signIn(e);
-                        history.push('/')
-                    }}>
+                <button onClick={(e) => onSubmit(e)}>
                     {title}
                 </button>
 
@@ -48,4 +72,4 @@ const Authentication = ({inputEmail, emailRef, passwordRef, register, signIn}) =
     );
 };
 
-export default Authentication;
+export default AuthForm;
