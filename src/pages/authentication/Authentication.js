@@ -1,10 +1,30 @@
 import React, {Fragment, useState} from 'react';
 import './Authentication.css';
 import AuthForm from "./authForm/AuthForm";
+import {auth} from "../../firebase";
+import {useHistory} from "react-router-dom";
+
 
 const Authentication = () => {
     const [showAuthForm, setShowAuthForm] = useState(false);
     const [defaultEmail, setDefaultEmail] = useState('');
+    const history = useHistory();
+
+    const handleAuth = (signUp, email, password) => {
+        if (signUp) {
+            return auth.createUserWithEmailAndPassword(email, password);
+        }
+        return auth.signInWithEmailAndPassword(email, password);
+    }
+
+    const onSubmit = (signUp, email, password) => {
+        handleAuth(signUp, email, password).then((authUser) => {
+            console.log(authUser);
+            history.push('/');
+        }).catch(error => {
+            alert(error.message)
+        })
+    }
 
     return (
         <div className='auth'>
@@ -12,7 +32,7 @@ const Authentication = () => {
                 <h1 className='auth-logo'>MOVIELAND</h1>
             </div>
             <div className="auth-body">
-                {showAuthForm ? <AuthForm defaultEmail={defaultEmail}/>
+                {showAuthForm ? <AuthForm defaultEmail={defaultEmail} onSubmit={onSubmit}/>
                     :
                     (
                         <Fragment>

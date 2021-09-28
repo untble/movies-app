@@ -5,7 +5,11 @@ import {useSelector} from "react-redux";
 import db from "../../firebase";
 import firebase from "firebase/compat";
 
-const MovieBackSide = ({name, genres, runtime, premiered, rating, summary, image, id}) => {
+
+const MovieBackSide = ({movie}) => {
+    const image = movie.image.medium;
+    const {name, genres, runtime, premiered, rating, summary, id} = movie;
+
     const user = useSelector(state => state.user);
 
     const truncate = (str, n) => {

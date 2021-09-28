@@ -2,22 +2,19 @@ import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import FavouriteMovieCard from "../../components/favouriteMovieCard/FavouriteMovieCard";
 import Header from "../../components/header/Header";
-import {getUser, removeFavourite} from "../../services/usersService";
+import {getUserFavourites, removeFavourite} from "../../services/usersService";
 
 const Favourites = () => {
     const id = useSelector(state => state.user.uid);
-    const [user, setUser] = useState();
+    const [favourites, setFavourites] = useState([]);
 
     useEffect(() => {
-        getUser(id).then(user => setUser(user));
+        getUserFavourites(id).then(favourites => setFavourites(favourites));
     }, [id])
 
     const removeFromFavorites = (movie) => {
         removeFavourite(movie, id).then(() => {
-            setUser({
-                ...user,
-                favourites: user.favourites.filter(userMovie => userMovie.id !== movie.id)
-            })
+            setFavourites(favourites.filter(userMovie => userMovie.id !== movie.id))
         });
     }
 
@@ -25,7 +22,7 @@ const Favourites = () => {
         <div className="favourites">
             <Header/>
             {
-                user && user.favourites.map(movie => (
+                favourites && favourites.map(movie => (
                     <FavouriteMovieCard
                         key={movie.name}
                         movie={movie}

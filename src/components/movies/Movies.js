@@ -25,12 +25,10 @@ const Movies = () => {
             <div className="movies-container">
                 {
                     movies?.map(movie => {
-                        const {name, id, image} = movie;
+                        const {name, id} = movie;
                         return name.toLowerCase().includes(inputData.toLowerCase()) && (<Movie
                                 key={id}
-                                name={name}
-                                image={image.medium}
-                                {...movie}
+                                movie={movie}
                             />
                         )
                     })

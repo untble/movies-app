@@ -11,3 +11,11 @@
     max-height: 22px;
     color: #919FA4;
 }
+
+.backside-movie {
+    display: none;
+}
+
+.movie:hover .backside-movie {
+    display: block;
+}
