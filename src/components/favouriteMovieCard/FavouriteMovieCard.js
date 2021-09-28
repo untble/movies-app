@@ -11,7 +11,7 @@ const FavouriteMovieCard = ({movie, removeFromFavorites}) => {
     return (
         <div className="movie-card-container">
             <div className="movie-card">
-                <img src={movie.image} alt={movie.name} className="movie-card-image"/>
+                <img src={movie.image.medium} alt={movie.name} className="movie-card-image"/>
                 <div className="movie-card-info">
                     <h2 className="movie-card-name">{movie.name}</h2>
                     <p className="movie-card-additional-info">

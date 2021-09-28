@@ -13,7 +13,6 @@ export const getCollection = async (collectionPath) => {
 
 export const getDocumentById = async (collectionPath, id) => {
     const snapShot = await db.collection(collectionPath).doc(id).get();
-
     return {...snapShot.data(), id};
 }
 
@@ -23,6 +22,26 @@ export const removeFavouriteMovie = async (collectionPath, movie, id) => {
         .update({
             favourites: firebase.firestore.FieldValue.arrayRemove(movie)
         })
+}
+
+export const addFavouriteMovie = async (collectionPath, movie, id) => {
+    return db.collection('users')
+        .doc(id)
+        .update({
+            favourites: firebase.firestore.FieldValue.arrayUnion(movie)
+        })
+}
+
+export const addUserToFriends = async (collectionPath, user, id) => {
+    await db.collection('users').doc(id).update({
+        friends: firebase.firestore.FieldValue.arrayUnion(user)
+    })
+}
+
+export const removeUserFromFriends = async (collectionPath, user, id) => {
+    await db.collection('users').doc(id).update({
+        friends: firebase.firestore.FieldValue.arrayRemove(user)
+    })
 }
 
 // export const deleteDocumentById = async (collectionPath, id) => {
