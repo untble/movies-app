@@ -6,7 +6,7 @@ import {addFavourite} from "../../services/usersService";
 
 
 const MovieBackSide = ({movie}) => {
-    const img = movie.image;
+    const img = movie.image.medium;
     const {name, genres, runtime, premiered, rating, summary} = movie;
 
     const id = useSelector(state => state.user.uid);
