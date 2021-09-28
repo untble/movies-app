@@ -1,4 +1,4 @@
-.login {
+.auth {
     position: relative;
     height: 100vh;
     background: url("https://cdn.cnn.com/cnnnext/dam/assets/141222133223-sixties-background-full-169.png") center no-repeat;
@@ -6,12 +6,12 @@
 
 }
 
-.login-background {
+.auth-background {
     height: 80px;
     background-color: rgba(0, 0, 0, 0.7)
 }
 
-.login-logo {
+.auth-logo {
     position: fixed;
     left: 20px;
     top: 25px;
@@ -25,7 +25,7 @@
 
 }
 
-.login-body {
+.auth-body {
     z-index: 1;
     color: white;
     position: absolute;
@@ -36,17 +36,17 @@
 
 }
 
-.login-body > h1 {
+.auth-body > h1 {
     font-size: 2.5rem;
     font-weight: 500;
 }
 
-.login-body > h2 {
+.auth-body > h2 {
     font-weight: 400;
     font-size: 1.5rem;
 }
 
-.login-body > h3 {
+.auth-body > h3 {
     margin-top: 12px;
     font-weight: 300;
     font-size: 1.1rem;
@@ -60,14 +60,14 @@
 }
 
 @media screen and (max-width: 600px) {
-    .login-body > h1 {
+    .auth-body > h1 {
         font-size: 1.7rem;
     }
-    .login-body > h2 {
+    .auth-body > h2 {
         font-size: 1.1rem;
     }
 
-    .login-body > h3 {
+    .auth-body > h3 {
         font-size: 0.7rem;
     }
 

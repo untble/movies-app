@@ -1,17 +1,17 @@
 import React, {Fragment, useState} from 'react';
 import './Authentication.css';
-import AuthForm from "../authentication/AuthForm";
+import AuthForm from "./authForm/AuthForm";
 
 const Authentication = () => {
     const [showAuthForm, setShowAuthForm] = useState(false);
     const [defaultEmail, setDefaultEmail] = useState('');
 
     return (
-        <div className='login'>
-            <div className='login-background'>
-                <h1 className='login-logo'>MOVIELAND</h1>
+        <div className='auth'>
+            <div className='auth-background'>
+                <h1 className='auth-logo'>MOVIELAND</h1>
             </div>
-            <div className="login-body">
+            <div className="auth-body">
                 {showAuthForm ? <AuthForm defaultEmail={defaultEmail}/>
                     :
                     (

@@ -1,4 +1,4 @@
-.auth {
+.auth-form {
     max-width: 500px;
     padding: 70px;
     margin: 0 auto;
@@ -7,17 +7,17 @@
     width: 400px;
 }
 
-.auth > form {
+.auth-form > form {
     display: grid;
     flex-direction: column;
 }
 
-.auth > form > h1 {
+.auth-form > form > h1 {
     text-align: left;
     margin-bottom: 20px;
 }
 
-.auth > form > input {
+.auth-form > form > input {
     outline-width: 0;
     height: 40px;
     margin-bottom: 14px;
@@ -25,13 +25,13 @@
     border-radius: 5px;
 }
 
-.auth > form > h4 {
+.auth-form > form > h4 {
     text-align: left;
     margin-top: 25px;
     font-weight: 400;
 }
 
-.auth > form > button {
+.auth-form > form > button {
     padding: 16px 20px;
     font-size: 1rem;
     border-radius: 5px;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './AuthForm.css';
 import {useHistory} from 'react-router-dom'
-import {auth} from "../../firebase";
+import {auth} from "../../../firebase";
 
 //AuthenticationForm
 const AuthForm = ({defaultEmail}) => {
@@ -38,7 +38,7 @@ const AuthForm = ({defaultEmail}) => {
     }
 
     return (
-        <div className="auth">
+        <div className="auth-form">
             <form>
                 <h1>{title}</h1>
                 <input
@@ -57,7 +57,7 @@ const AuthForm = ({defaultEmail}) => {
                     {title}
                 </button>
 
-                {!signUp && (
+                {!signUp ?
                     <h4>
                         <span className="auth-gray">New to MovieLand? </span>
                         <span
@@ -66,7 +66,15 @@ const AuthForm = ({defaultEmail}) => {
                         Sign Up now.
                     </span>
                     </h4>
-                )}
+                 : <h4>
+                    <span className="auth-gray">Has an account? </span>
+                    <span
+                        className="auth-link"
+                        onClick={() => setSignUp(false)}>
+                        Sign In now.
+                    </span>
+                </h4>
+                }
             </form>
         </div>
     );

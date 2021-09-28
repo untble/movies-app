@@ -4,11 +4,9 @@ import MovieBackSide from "../movieBackSide/MovieBackSide";
 
 const Movie = ({name, image, ...movie}) => {
     const [isHovered, setIsHovered] = useState(false);
-    // const [isClicked, setIsClicked] = useState(false);
 
     return (
         <div className="movie"
-             // onClick={() => setIsClicked(!isClicked)}
              onMouseEnter={() => setIsHovered(true)}
              onMouseLeave={() => setIsHovered(false)}>
             <img src={image.medium} alt={name} className="movie-img"/>
