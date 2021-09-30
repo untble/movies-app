@@ -3,6 +3,7 @@ import db, {auth} from "../../firebase";
 import './Profile.css';
 import Header from "../../components/header/Header";
 import {useSelector} from "react-redux";
+import {changeEmail} from "../../services/usersService";
 
 const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -23,11 +24,8 @@ const Profile = () => {
                 .catch(e => console.log(e))
         }
 
-        db.collection('users').doc(id).update({
-            email
-        }).then(() => console.log('Email was updated successfully'))
+        changeEmail(email, id).then(() => console.log('Email was updated successfully'))
             .catch(e => console.log(e))
-
     }
 
     return (

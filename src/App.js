@@ -14,7 +14,6 @@ import Communication from "./pages/communication/Communication";
 
 function App() {
     const user = useSelector(state => state.user);
-    console.log('User', user)
     const dispatch = useDispatch();
 
 

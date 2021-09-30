@@ -3,7 +3,7 @@ import {
     getCollection,
     getDocumentById,
     removeFavouriteMovie,
-    addUserToFriends, removeUserFromFriends
+    addUserToFriends, removeUserFromFriends,changeEmailByID
 } from "./httpService";
 
 export const getUsers = () => getCollection('users');
@@ -19,6 +19,8 @@ export const getUserFavourites = async (id) => {
     const user = await getUser(id);
     return user.favourites;
 }
+
+export const changeEmail = (email, id) => changeEmailByID('users', email, id);
 
 
 

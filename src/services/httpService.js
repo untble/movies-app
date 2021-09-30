@@ -43,3 +43,10 @@ export const removeUserFromFriends = async (collectionPath, user, id) => {
         friends: firebase.firestore.FieldValue.arrayRemove(user)
     })
 }
+
+
+export const changeEmailByID = async (collectionPath, email, id) => {
+    return db.collection('users').doc(id).update({
+        email
+    })
+}
