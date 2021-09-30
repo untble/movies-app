@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {auth} from "../../firebase";
+import db, {auth} from "../../firebase";
 import './Profile.css';
 import Header from "../../components/header/Header";
+import {useSelector} from "react-redux";
 
 const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -9,21 +10,29 @@ const regex =
 const Profile = () => {
     const [edit, setEdit] = useState(false);
     const [email, setEmail] = useState(auth.currentUser.email);
+    const id = useSelector(state => state.user.uid);
 
     const handleEmail = (e) => {
         e.preventDefault();
 
         setEdit(false);
 
-        regex.test(email) && auth.currentUser.updateEmail(email)
-            .then(res=> console.log(res))
+        if (regex.test(email)) {
+            auth.currentUser.updateEmail(email)
+                .then(res => console.log(res))
+                .catch(e => console.log(e))
+        }
+
+        db.collection('users').doc(id).update({
+            email
+        }).then(() => console.log('Email was updated successfully'))
             .catch(e => console.log(e))
 
     }
 
     return (
         <div className="profile">
-            <Header />
+            <Header/>
             <div className="profile-body">
                 <h1>Edit Profile</h1>
                 <div className="profile-info">

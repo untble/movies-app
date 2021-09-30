@@ -43,10 +43,3 @@ export const removeUserFromFriends = async (collectionPath, user, id) => {
         friends: firebase.firestore.FieldValue.arrayRemove(user)
     })
 }
-
-// export const deleteDocumentById = async (collectionPath, id) => {
-//     console.log(collectionPath,id);
-//     return db.collection(collectionPath)
-//         .doc(id)
-//         .delete()
-// }

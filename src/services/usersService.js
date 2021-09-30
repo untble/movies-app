@@ -1,6 +1,5 @@
 import {
     addFavouriteMovie,
-    deleteDocumentById,
     getCollection,
     getDocumentById,
     removeFavouriteMovie,
@@ -22,7 +21,4 @@ export const getUserFavourites = async (id) => {
 }
 
 
-
-
-// export const removeFavouriteMovieFromUser = (userId, favouriteId) => deleteDocumentById(`users/${userId}/favourites`, favouriteId);
 
